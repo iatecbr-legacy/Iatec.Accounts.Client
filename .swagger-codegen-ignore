@@ -1,0 +1,9 @@
+.gitignore
+git_push.sh
+mono_nunit_test.sh
+src/*.Test/
+build.bat
+build.sh
+.travis.yml
+src/Iatec.Adems.PeopleManagement.Client.Test/
+Iatec.Adems.PeopleManagement.Client.sln

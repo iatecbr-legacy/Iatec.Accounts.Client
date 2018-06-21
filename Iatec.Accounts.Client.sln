@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Iatec.Accounts.Client", "src\Iatec.Accounts.Client\Iatec.Accounts.Client.csproj", "{0874BD9D-1522-43C6-B593-241CD591412C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteCliente", "TesteCliente\TesteCliente.csproj", "{7F642CA1-CF26-4635-B51F-275096F64CF8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0874BD9D-1522-43C6-B593-241CD591412C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0874BD9D-1522-43C6-B593-241CD591412C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0874BD9D-1522-43C6-B593-241CD591412C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0874BD9D-1522-43C6-B593-241CD591412C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F642CA1-CF26-4635-B51F-275096F64CF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F642CA1-CF26-4635-B51F-275096F64CF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F642CA1-CF26-4635-B51F-275096F64CF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F642CA1-CF26-4635-B51F-275096F64CF8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {002F33D9-9CEC-4741-87EA-DC8083CFDAFD}
+	EndGlobalSection
+EndGlobal
