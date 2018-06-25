@@ -43,8 +43,6 @@ namespace TesteCliente
                 UserName = "azeite.adems",
             };
 
-
-
             var user1 = UpdateUserByIdTest(apiConfig, user.Id, newUser);
 
             Console.WriteLine(user1.ToString());
@@ -73,13 +71,21 @@ namespace TesteCliente
 
             //    Console.WriteLine(c.ToString());
             //}
-            //var userList = GetUsersByFilter(apiConfig, "william");
-            //foreach (var item in userList.Items)
-            //{
-            //    Console.WriteLine("*");
-            //    Console.WriteLine(item.ToString());
-            //    Console.WriteLine("*");
-            //}
+            var userList = GetUsersByFilter(apiConfig, "william");
+            Console.WriteLine(userList.ToString());
+            foreach (var item in userList.Items)
+            {
+                Console.WriteLine("*");
+                Console.WriteLine(item.ToString());
+                Console.WriteLine("*");
+            }
+
+            DeleteUserTest(apiConfig, user.Id);
+
+            var b = GetUserByIdTest(apiConfig, user.Id);
+
+            if (b == null)
+                Console.WriteLine("Delete works");
 
             Console.WriteLine("-- END --");
             Console.ReadLine();
@@ -232,6 +238,19 @@ namespace TesteCliente
         }
 
         #endregion
+
+        private static void DeleteUserTest(Iatec.Accounts.Client.Configuration apiConfig, Guid id)
+        {
+            try
+            {
+                var api = new UserApi(apiConfig);
+                api.DeleteUserById(id);
+            }
+            catch (ApiException ex)
+            {
+                throw ex;
+            }
+        }
 
         private static UserModel CreateUserTest(Iatec.Accounts.Client.Configuration apiConfig)
         {

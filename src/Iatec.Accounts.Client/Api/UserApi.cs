@@ -32,8 +32,32 @@ namespace Iatec.Accounts.Client.Api
         /// </remarks>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
-        /// <returns>UserModel</returns>
-        UserModel GetUserById(Guid? id);
+        /// <param name="password"></param>
+        /// <returns></returns>
+        void ChangeUserPasswordById(Guid? id, string password);
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <remarks>
+        ///
+        /// </remarks>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="password"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> ChangeUserPasswordByIdWithHttpInfo(Guid? id, string password);
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <remarks>
+        ///
+        /// </remarks>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        UserModel CreateUser(UserInsertModel user = null);
 
         /// <summary>
         ///
@@ -44,7 +68,7 @@ namespace Iatec.Accounts.Client.Api
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>ApiResponse of UserModel</returns>
-        ApiResponse<UserModel> GetUserByIdWithHttpInfo(Guid? id);
+        ApiResponse<UserModel> CreateUserWithHttpInfo(UserInsertModel user = null);
 
         /// <summary>
         ///
@@ -53,9 +77,8 @@ namespace Iatec.Accounts.Client.Api
         ///
         /// </remarks>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username"></param>
-        /// <returns>UserModel</returns>
-        UserModel GetUserByUsername(string username);
+        /// <param name="id"></param>
+        void DeleteUserById(Guid? id);
 
         /// <summary>
         ///
@@ -64,31 +87,9 @@ namespace Iatec.Accounts.Client.Api
         ///
         /// </remarks>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username"></param>
-        /// <returns>ApiResponse of UserModel</returns>
-        ApiResponse<UserModel> GetUserByUsernameWithHttpInfo(string username);
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <remarks>
-        ///
-        /// </remarks>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email"></param>
-        /// <returns>UserModel</returns>
-        UserModel GetUserByEmail(string email);
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <remarks>
-        ///
-        /// </remarks>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email"></param>
-        /// <returns>ApiResponse of UserModel</returns>
-        ApiResponse<UserModel> GetUserByEmailWithHttpInfo(string email);
+        /// <param name="id"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteUserByIdWithHttpInfo(Guid? id);
 
         /// <summary>
         ///
@@ -127,9 +128,31 @@ namespace Iatec.Accounts.Client.Api
         ///
         /// </remarks>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email"></param>
+        /// <returns>UserModel</returns>
+        UserModel GetUserByEmail(string email);
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <remarks>
+        ///
+        /// </remarks>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email"></param>
+        /// <returns>ApiResponse of UserModel</returns>
+        ApiResponse<UserModel> GetUserByEmailWithHttpInfo(string email);
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <remarks>
+        ///
+        /// </remarks>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
-        /// <returns></returns>
-        UserModel CreateUser(UserInsertModel user = null);
+        /// <returns>UserModel</returns>
+        UserModel GetUserById(Guid? id);
 
         /// <summary>
         ///
@@ -140,7 +163,17 @@ namespace Iatec.Accounts.Client.Api
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
         /// <returns>ApiResponse of UserModel</returns>
-        ApiResponse<UserModel> CreateUserWithHttpInfo(UserInsertModel user = null);
+        ApiResponse<UserModel> GetUserByIdWithHttpInfo(Guid? id);
+        /// <summary>
+        ///
+        /// </summary>
+        /// <remarks>
+        ///
+        /// </remarks>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username"></param>
+        /// <returns>UserModel</returns>
+        UserModel GetUserByUsername(string username);
 
         /// <summary>
         ///
@@ -149,22 +182,26 @@ namespace Iatec.Accounts.Client.Api
         ///
         /// </remarks>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="username"></param>
+        /// <returns>ApiResponse of UserModel</returns>
+        ApiResponse<UserModel> GetUserByUsernameWithHttpInfo(string username);
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email"> </param>
         /// <param name="password"></param>
         /// <returns></returns>
-        void ChangeUserPasswordById(Guid? id, string password);
+        void ResetPasswordByEmail(string email, string password);
 
         /// <summary>
         ///
         /// </summary>
-        /// <remarks>
-        ///
-        /// </remarks>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="email"> </param>
         /// <param name="password"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ChangeUserPasswordByIdWithHttpInfo(Guid? id, string password);
+        ApiResponse<Object> ResetPasswordByEmailWithHttpInfo(string email, string password);
 
         /// <summary>
         ///
@@ -183,24 +220,23 @@ namespace Iatec.Accounts.Client.Api
         /// <param name="password"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ResetPasswordByUsernameWithHttpInfo(string username, string password);
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email"> </param>
+        /// <param name="user"></param>
+        /// <returns>ApiResponse of UserModel</returns>
+        UserModel UpdateUserByEmail(string email, UserInsertModel user);
 
         /// <summary>
         ///
         /// </summary>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email"> </param>
-        /// <param name="password"></param>
-        /// <returns></returns>
-        void ResetPasswordByEmail(string email, string password);
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email"> </param>
-        /// <param name="password"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ResetPasswordByEmailWithHttpInfo(string email, string password);
+        /// <param name="user"></param>
+        /// <returns>ApiResponse of UserModel</returns>
+        ApiResponse<UserModel> UpdateUserByEmailWithHttpInfo(string email, UserInsertModel user);
 
         /// <summary>
         ///
@@ -237,25 +273,6 @@ namespace Iatec.Accounts.Client.Api
         /// <param name="user"></param>
         /// <returns>ApiResponse of UserModel</returns>
         ApiResponse<UserModel> UpdateUserByUsernameWithHttpInfo(string username, UserInsertModel user);
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email"> </param>
-        /// <param name="user"></param>
-        /// <returns>ApiResponse of UserModel</returns>
-        UserModel UpdateUserByEmail(string email, UserInsertModel user);
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email"> </param>
-        /// <param name="user"></param>
-        /// <returns>ApiResponse of UserModel</returns>
-        ApiResponse<UserModel> UpdateUserByEmailWithHttpInfo(string email, UserInsertModel user);
-
         #endregion Synchronous Operations
 
         #region Asynchronous Operations
@@ -268,8 +285,9 @@ namespace Iatec.Accounts.Client.Api
         /// </remarks>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
-        /// <returns>Task of UserModel</returns>
-        System.Threading.Tasks.Task<UserModel> GetUserByIdAsync(Guid? id);
+        /// <param name="password"></param>
+        /// <returns></returns>
+        System.Threading.Tasks.Task ChangeUserPasswordByIdAsync(Guid? id, string password);
 
         /// <summary>
         ///
@@ -279,8 +297,9 @@ namespace Iatec.Accounts.Client.Api
         /// </remarks>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
-        /// <returns>Task of ApiResponse (UserModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserModel>> GetUserByIdAsyncWithHttpInfo(Guid? id);
+        /// <param name="password"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> ChangeUserPasswordByIdAsyncWithHttpInfo(Guid? id, string password);
 
         /// <summary>
         ///
@@ -289,9 +308,9 @@ namespace Iatec.Accounts.Client.Api
         ///
         /// </remarks>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username"></param>
-        /// <returns>Task of UserModel</returns>
-        System.Threading.Tasks.Task<UserModel> GetUserByUsernameAsync(string username);
+        /// <param name="id"></param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task<UserModel> CreateUserAsync(UserInsertModel user = null);
 
         /// <summary>
         ///
@@ -300,9 +319,9 @@ namespace Iatec.Accounts.Client.Api
         ///
         /// </remarks>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username"></param>
-        /// <returns>Task of ApiResponse (UserModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserModel>> GetUserByUsernameAsyncWithHttpInfo(string username);
+        /// <param name="id"></param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<UserModel>> CreateUserAsyncWithHttpInfo(UserInsertModel user = null);
 
         /// <summary>
         ///
@@ -311,9 +330,8 @@ namespace Iatec.Accounts.Client.Api
         ///
         /// </remarks>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email"></param>
-        /// <returns>Task of UserModel</returns>
-        System.Threading.Tasks.Task<UserModel> GetUserByEmailAsync(string email);
+        /// <param name="id"></param>
+        System.Threading.Tasks.Task DeleteUserByIdAsync(Guid? id);
 
         /// <summary>
         ///
@@ -322,9 +340,9 @@ namespace Iatec.Accounts.Client.Api
         ///
         /// </remarks>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email"></param>
-        /// <returns>Task of ApiResponse (UserModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserModel>> GetUserByEmailAsyncWithHttpInfo(string email);
+        /// <param name="id"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteUserByIdAsyncWithHttpInfo(Guid? id);
 
         /// <summary>
         ///
@@ -363,9 +381,20 @@ namespace Iatec.Accounts.Client.Api
         ///
         /// </remarks>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task<UserModel> CreateUserAsync(UserInsertModel user = null);
+        /// <param name="email"></param>
+        /// <returns>Task of UserModel</returns>
+        System.Threading.Tasks.Task<UserModel> GetUserByEmailAsync(string email);
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <remarks>
+        ///
+        /// </remarks>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email"></param>
+        /// <returns>Task of ApiResponse (UserModel)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UserModel>> GetUserByEmailAsyncWithHttpInfo(string email);
 
         /// <summary>
         ///
@@ -375,8 +404,8 @@ namespace Iatec.Accounts.Client.Api
         /// </remarks>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserModel>> CreateUserAsyncWithHttpInfo(UserInsertModel user = null);
+        /// <returns>Task of UserModel</returns>
+        System.Threading.Tasks.Task<UserModel> GetUserByIdAsync(Guid? id);
 
         /// <summary>
         ///
@@ -386,21 +415,46 @@ namespace Iatec.Accounts.Client.Api
         /// </remarks>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
+        /// <returns>Task of ApiResponse (UserModel)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UserModel>> GetUserByIdAsyncWithHttpInfo(Guid? id);
+        /// <summary>
+        ///
+        /// </summary>
+        /// <remarks>
+        ///
+        /// </remarks>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username"></param>
+        /// <returns>Task of UserModel</returns>
+        System.Threading.Tasks.Task<UserModel> GetUserByUsernameAsync(string username);
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <remarks>
+        ///
+        /// </remarks>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username"></param>
+        /// <returns>Task of ApiResponse (UserModel)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UserModel>> GetUserByUsernameAsyncWithHttpInfo(string username);
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email"> </param>
         /// <param name="password"></param>
         /// <returns></returns>
-        System.Threading.Tasks.Task ChangeUserPasswordByIdAsync(Guid? id, string password);
+        System.Threading.Tasks.Task ResetPasswordByEmailAsync(string email, string password);
 
         /// <summary>
         ///
         /// </summary>
-        /// <remarks>
-        ///
-        /// </remarks>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="email"> </param>
         /// <param name="password"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ChangeUserPasswordByIdAsyncWithHttpInfo(Guid? id, string password);
+        System.Threading.Tasks.Task<ApiResponse<Object>> ResetPasswordByEmailAsyncWithHttpInfo(string email, string password);
 
         /// <summary>
         ///
@@ -419,24 +473,23 @@ namespace Iatec.Accounts.Client.Api
         /// <param name="password"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> ResetPasswordByUsernameAsyncWithHttpInfo(string username, string password);
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email"> </param>
+        /// <param name="user"></param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<UserModel> UpdateUserByEmailAsync(string email, UserInsertModel user);
 
         /// <summary>
         ///
         /// </summary>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email"> </param>
-        /// <param name="password"></param>
-        /// <returns></returns>
-        System.Threading.Tasks.Task ResetPasswordByEmailAsync(string email, string password);
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email"> </param>
-        /// <param name="password"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ResetPasswordByEmailAsyncWithHttpInfo(string email, string password);
+        /// <param name="user"></param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<UserModel>> UpdateUserByEmailAsyncWithHttpInfo(string email, UserInsertModel user);
 
         /// <summary>
         ///
@@ -473,25 +526,6 @@ namespace Iatec.Accounts.Client.Api
         /// <param name="user"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<UserModel>> UpdateUserByUsernameAsyncWithHttpInfo(string username, UserInsertModel user);
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email"> </param>
-        /// <param name="user"></param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<UserModel> UpdateUserByEmailAsync(string email, UserInsertModel user);
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email"> </param>
-        /// <param name="user"></param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserModel>> UpdateUserByEmailAsyncWithHttpInfo(string email, UserInsertModel user);
-
         #endregion Asynchronous Operations
     }
 
@@ -500,127 +534,41 @@ namespace Iatec.Accounts.Client.Api
     /// </summary>
     public partial class UserApi : IUserApi
     {
-        private Iatec.Accounts.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
-
-        #region Default
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UserApi"/> class.
-        /// </summary>
-        /// <returns></returns>
-        public UserApi(String basePath)
-        {
-            this.Configuration = new Configuration { BasePath = basePath };
-
-            ExceptionFactory = Iatec.Accounts.Client.Configuration.DefaultExceptionFactory;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UserApi"/> class
-        /// using Configuration object
-        /// </summary>
-        /// <param name="configuration">An instance of Configuration</param>
-        /// <returns></returns>
-        public UserApi(Configuration configuration = null)
-        {
-            if (configuration == null) // use the default one in Configuration
-                this.Configuration = Configuration.Default;
-            else
-                this.Configuration = configuration;
-
-            ExceptionFactory = Iatec.Accounts.Client.Configuration.DefaultExceptionFactory;
-        }
-
-        /// <summary>
-        /// Gets the base path of the API client.
-        /// </summary>
-        /// <value>The base path</value>
-        public String GetBasePath()
-        {
-            return this.Configuration.ApiClient.RestClient.BaseUrl.ToString();
-        }
-
-        /// <summary>
-        /// Sets the base path of the API client.
-        /// </summary>
-        /// <value>The base path</value>
-        [Obsolete("SetBasePath is deprecated, please do 'Configuration.ApiClient = new ApiClient(\"http://new-path\")' instead.")]
-        public void SetBasePath(String basePath)
-        {
-            // do nothing
-        }
-
-        /// <summary>
-        /// Gets or sets the configuration object
-        /// </summary>
-        /// <value>An instance of the Configuration</value>
-        public Configuration Configuration { get; set; }
-
-        /// <summary>
-        /// Provides a factory method hook for the creation of exceptions.
-        /// </summary>
-        public Iatec.Accounts.Client.ExceptionFactory ExceptionFactory
-        {
-            get
-            {
-                if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
-                {
-                    throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
-                }
-                return _exceptionFactory;
-            }
-            set { _exceptionFactory = value; }
-        }
-
-        /// <summary>
-        /// Gets the default header.
-        /// </summary>
-        /// <returns>Dictionary of HTTP header</returns>
-        [Obsolete("DefaultHeader is deprecated, please use Configuration.DefaultHeader instead.")]
-        public IDictionary<String, String> DefaultHeader()
-        {
-            return new ReadOnlyDictionary<string, string>(this.Configuration.DefaultHeader);
-        }
-
-        /// <summary>
-        /// Add default header.
-        /// </summary>
-        /// <param name="key">Header field name.</param>
-        /// <param name="value">Header field value.</param>
-        /// <returns></returns>
-        [Obsolete("AddDefaultHeader is deprecated, please use Configuration.AddDefaultHeader instead.")]
-        public void AddDefaultHeader(string key, string value)
-        {
-            this.Configuration.AddDefaultHeader(key, value);
-        }
-
-        #endregion Default
-
         /// <summary>
         ///
         /// </summary>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>UserModel</returns>
-        public UserModel GetUserById(Guid? id)
+        /// <param name="naturalPerson"> (optional)</param>
+        /// <returns>NaturalPersonLiteExternalModel</returns>
+        public void ChangeUserPasswordById(Guid? id, string password)
         {
-            ApiResponse<UserModel> localVarResponse = GetUserByIdWithHttpInfo(id);
-            return localVarResponse?.Data;
+            ChangeUserPasswordByIdWithHttpInfo(id, password);
         }
 
         /// <summary>
         ///
         /// </summary>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>ApiResponse of UserModel</returns>
-        public ApiResponse<UserModel> GetUserByIdWithHttpInfo(Guid? id)
+        /// <param name="naturalPerson"> (optional)</param>
+        /// <returns>Task of NaturalPersonLiteExternalModel</returns>
+        public async System.Threading.Tasks.Task ChangeUserPasswordByIdAsync(Guid? id, string password)
+        {
+            await ChangeUserPasswordByIdAsyncWithHttpInfo(id, password);
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="naturalPerson"> (optional)</param>
+        /// <returns>Task of ApiResponse (NaturalPersonLiteExternalModel)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> ChangeUserPasswordByIdAsyncWithHttpInfo(Guid? id, string password)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UserApi->GetUserById");
+                throw new ApiException(400, "Missing required parameter 'id' when calling UserApi-> ChangeUserPasswordById");
 
-            var localVarPath = "/users/{id}";
+            var localVarPath = "/users/{id}/password";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -642,7 +590,9 @@ namespace Iatec.Accounts.Client.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (id != null) localVarPathParams.Add("id", id.Value.ToString());
+#warning REVER COM O ANDRE
+            localVarPathParams.Add("id", id.Value.ToString());
+            localVarFormParams.Add("password", password);
 
             // authentication (client_credentials) required
             // oauth required
@@ -652,8 +602,8 @@ namespace Iatec.Accounts.Client.Api
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
@@ -663,40 +613,28 @@ namespace Iatec.Accounts.Client.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetUserById", localVarResponse);
+                Exception exception = ExceptionFactory("ChangeUserPasswordById", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<UserModel>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (UserModel)Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserModel)));
+            return new ApiResponse<Object>(localVarStatusCode,
+              localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+              null);
         }
 
         /// <summary>
         ///
         /// </summary>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>Task of UserModel</returns>
-        public async System.Threading.Tasks.Task<UserModel> GetUserByIdAsync(Guid? id)
-        {
-            ApiResponse<UserModel> localVarResponse = await GetUserByIdAsyncWithHttpInfo(id);
-            return localVarResponse?.Data;
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>Task of ApiResponse (UserModel)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<UserModel>> GetUserByIdAsyncWithHttpInfo(Guid? id)
+        /// <param name="naturalPerson"> (optional)</param>
+        /// <returns>ApiResponse of NaturalPersonLiteExternalModel</returns>
+        public ApiResponse<Object> ChangeUserPasswordByIdWithHttpInfo(Guid? id, string password)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UserApi->GetUserById");
+                throw new ApiException(400, "Missing required parameter 'id' when calling UserApi-> ChangeUserPasswordById");
 
-            var localVarPath = "/users/{id}";
+            var localVarPath = "/users/{id}/password";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -718,83 +656,9 @@ namespace Iatec.Accounts.Client.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (id != null) localVarPathParams.Add("id", id.Value.ToString());
-
-            // authentication (client_credentials) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
-                return null;
-
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetUserById", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<UserModel>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (UserModel)Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserModel)));
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username"></param>
-        /// <returns>UserModel</returns>
-        public UserModel GetUserByUsername(string username)
-        {
-            ApiResponse<UserModel> localVarResponse = GetUserByUsernameWithHttpInfo(username);
-            return localVarResponse?.Data;
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username"></param>
-        /// <returns>ApiResponse of UserModel</returns>
-        public ApiResponse<UserModel> GetUserByUsernameWithHttpInfo(string username)
-        {
-            // verify the required parameter 'username' is set
-            if (username == null)
-                throw new ApiException(400, "Missing required parameter 'username' when calling UserApi->GetUserByUserName");
-
-            var localVarPath = "/users/by-username/{username}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "applications/json",
-                "applications/xml"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (username != null) localVarPathParams.Add("username", username); // query parameter
+#warning REVER COM O ANDRE
+            localVarPathParams.Add("id", id.Value.ToString());
+            localVarFormParams.Add("password", password);
 
             // authentication (client_credentials) required
             // oauth required
@@ -805,7 +669,7 @@ namespace Iatec.Accounts.Client.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
@@ -815,390 +679,13 @@ namespace Iatec.Accounts.Client.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetUserByUserName", localVarResponse);
+                Exception exception = ExceptionFactory("ChangeUserPasswordById", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<UserModel>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (UserModel)Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserModel)));
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username"></param>
-        /// <returns>Task of UserModel</returns>
-        public async System.Threading.Tasks.Task<UserModel> GetUserByUsernameAsync(string username)
-        {
-            ApiResponse<UserModel> localVarResponse = await GetUserByUsernameAsyncWithHttpInfo(username);
-            return localVarResponse?.Data;
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username"></param>
-        /// <returns>Task of ApiResponse (UserModel)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<UserModel>> GetUserByUsernameAsyncWithHttpInfo(string username)
-        {
-            // verify the required parameter 'username' is set
-            if (username == null)
-                throw new ApiException(400, "Missing required parameter 'username' when calling UserApi->GetUserByUserName");
-
-            var localVarPath = "/users/by-username/{username}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "applications/json",
-                "applications/xml"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (username != null) localVarPathParams.Add("username", username);
-
-            // authentication (client_credentials) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
-                return null;
-
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetUserByUserName", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<UserModel>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (UserModel)Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserModel)));
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email"></param>
-        /// <returns>UserModel</returns>
-        public UserModel GetUserByEmail(string email)
-        {
-            ApiResponse<UserModel> localVarResponse = GetUserByEmailWithHttpInfo(email);
-            return localVarResponse?.Data;
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email"></param>
-        /// <returns>ApiResponse of UserModel</returns>
-        public ApiResponse<UserModel> GetUserByEmailWithHttpInfo(string email)
-        {
-            // verify the required parameter 'email' is set
-            if (email == null)
-                throw new ApiException(400, "Missing required parameter 'email' when calling UserApi->GetUserByEmail");
-
-            var localVarPath = "/users/by-email/{email}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "applications/json",
-                "applications/xml"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (email != null) localVarPathParams.Add("email", email);
-
-            // authentication (client_credentials) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
-                return null;
-
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
-
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetUserByEmail", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<UserModel>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (UserModel)Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserModel)));
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email"></param>
-        /// <returns>Task of UserModel</returns>
-        public async System.Threading.Tasks.Task<UserModel> GetUserByEmailAsync(string email)
-        {
-            ApiResponse<UserModel> localVarResponse = await GetUserByEmailAsyncWithHttpInfo(email);
-            return localVarResponse?.Data;
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email"></param>
-        /// <returns>Task of ApiResponse (UserModel)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<UserModel>> GetUserByEmailAsyncWithHttpInfo(string email)
-        {
-            // verify the required parameter 'email' is set
-            if (email == null)
-                throw new ApiException(400, "Missing required parameter 'email' when calling UserApi->GetUserByEmail");
-
-            var localVarPath = "/users/by-email/{email}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "applications/json",
-                "applications/xml"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (email != null) localVarPathParams.Add("email", email);
-
-            // authentication (client_credentials) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
-                return null;
-
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetUserByEmail", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<UserModel>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (UserModel)Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserModel)));
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filter"> (optional)</param>
-        /// <returns>List&lt;UserModel&gt;</returns>
-        public PagedResponse<UserModel> GetPagerUserByFilter(int limit, int offset, string filter = null)
-        {
-            ApiResponse<PagedResponse<UserModel>> localVarResponse = GetPagerUserByFilterWithHttpInfo(limit, offset, filter);
-            return localVarResponse?.Data;
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filter"> (optional)</param>
-        /// <returns>ApiResponse of List&lt;UserModel&gt;</returns>
-        public ApiResponse<PagedResponse<UserModel>> GetPagerUserByFilterWithHttpInfo(int limit, int offset, string filter = null)
-        {
-            var localVarPath = "/users";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "applications/json",
-                "applications/xml"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (filter != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
-            localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
-            localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-
-            // authentication (client_credentials) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
-                return null;
-
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetListUserByFilter", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<PagedResponse<UserModel>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PagedResponse<UserModel>)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResponse<UserModel>)));
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filter"> (optional)</param>
-        /// <returns>Task of List&lt;UserModel&gt;</returns>
-        public async System.Threading.Tasks.Task<PagedResponse<UserModel>> GetPagerUserByFilterAsync(int limit, int offset, string filter = null)
-        {
-            ApiResponse<PagedResponse<UserModel>> localVarResponse = await GetPagerUserByFilterAsyncWithHttpInfo(limit, offset, filter);
-            return localVarResponse?.Data;
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filter"> (optional)</param>
-        /// <returns>Task of ApiResponse (List&lt;UserModel&gt;)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PagedResponse<UserModel>>> GetPagerUserByFilterAsyncWithHttpInfo(int limit, int offset, string filter = null)
-        {
-            var localVarPath = "/users";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "applications/json",
-                "applications/xml"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (filter != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
-            localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
-            localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-
-            // authentication (client_credentials) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
-                return null;
-
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetListUserByFilter", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<PagedResponse<UserModel>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PagedResponse<UserModel>)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResponse<UserModel>)));
+            return new ApiResponse<Object>(localVarStatusCode,
+               localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+               null);
         }
 
         /// <summary>
@@ -1211,73 +698,6 @@ namespace Iatec.Accounts.Client.Api
         {
             ApiResponse<UserModel> localVarResponse = CreateUserWithHttpInfo(user);
             return localVarResponse?.Data;
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<UserModel> CreateUserWithHttpInfo(UserInsertModel user = null)
-        {
-            var localVarPath = "/users";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "applications/json",
-                "applications/xml"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (user != null && user.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(user); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = user; // byte array
-            }
-
-            // authentication (client_credentials) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
-                return null;
-
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("CreateUser", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<UserModel>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (UserModel)Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserModel)));
         }
 
         /// <summary>
@@ -1363,26 +783,11 @@ namespace Iatec.Accounts.Client.Api
         ///
         /// </summary>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="naturalPerson"> (optional)</param>
-        /// <returns>NaturalPersonLiteExternalModel</returns>
-        public void ChangeUserPasswordById(Guid? id, string password)
+        /// <param name="id"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<UserModel> CreateUserWithHttpInfo(UserInsertModel user = null)
         {
-            ChangeUserPasswordByIdWithHttpInfo(id, password);
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="naturalPerson"> (optional)</param>
-        /// <returns>ApiResponse of NaturalPersonLiteExternalModel</returns>
-        public ApiResponse<Object> ChangeUserPasswordByIdWithHttpInfo(Guid? id, string password)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UserApi-> ChangeUserPasswordById");
-
-            var localVarPath = "/users/{id}/password";
+            var localVarPath = "/users";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1404,9 +809,14 @@ namespace Iatec.Accounts.Client.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-#warning REVER COM O ANDRE
-            localVarPathParams.Add("id", id.Value.ToString());
-            localVarFormParams.Add("password", password);
+            if (user != null && user.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(user); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = user; // byte array
+            }
 
             // authentication (client_credentials) required
             // oauth required
@@ -1417,7 +827,7 @@ namespace Iatec.Accounts.Client.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
@@ -1427,39 +837,48 @@ namespace Iatec.Accounts.Client.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ChangeUserPasswordById", localVarResponse);
+                Exception exception = ExceptionFactory("CreateUser", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
-               localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-               null);
+            return new ApiResponse<UserModel>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (UserModel)Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserModel)));
         }
 
         /// <summary>
         ///
         /// </summary>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="naturalPerson"> (optional)</param>
-        /// <returns>Task of NaturalPersonLiteExternalModel</returns>
-        public async System.Threading.Tasks.Task ChangeUserPasswordByIdAsync(Guid? id, string password)
+        /// <param name="id"></param>
+        public void DeleteUserById(Guid? id)
         {
-            await ChangeUserPasswordByIdAsyncWithHttpInfo(id, password);
+            DeleteUserByIdWithHttpInfo(id);
         }
 
         /// <summary>
         ///
         /// </summary>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="naturalPerson"> (optional)</param>
-        /// <returns>Task of ApiResponse (NaturalPersonLiteExternalModel)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> ChangeUserPasswordByIdAsyncWithHttpInfo(Guid? id, string password)
+        /// <param name="id"></param>
+        public async System.Threading.Tasks.Task DeleteUserByIdAsync(Guid? id)
+        {
+            await DeleteUserByIdAsyncWithHttpInfo(id);
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <returns>Task of ApiResponse Object(void)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteUserByIdAsyncWithHttpInfo(Guid? id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UserApi-> ChangeUserPasswordById");
+                throw new ApiException(400, "Missing required parameter 'id' when calling UserApi->GetUserById");
 
-            var localVarPath = "/users/{id}/password";
+            var localVarPath = "/users/{id}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1481,9 +900,7 @@ namespace Iatec.Accounts.Client.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-#warning REVER COM O ANDRE
-            localVarPathParams.Add("id", id.Value.ToString());
-            localVarFormParams.Add("password", password);
+            if (id != null) localVarPathParams.Add("id", id.Value.ToString());
 
             // authentication (client_credentials) required
             // oauth required
@@ -1494,7 +911,7 @@ namespace Iatec.Accounts.Client.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
@@ -1504,7 +921,7 @@ namespace Iatec.Accounts.Client.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ChangeUserPasswordById", localVarResponse);
+                Exception exception = ExceptionFactory("GetUserById", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1517,26 +934,14 @@ namespace Iatec.Accounts.Client.Api
         ///
         /// </summary>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username"> </param>
-        /// <param name="password"></param>
-        public void ResetPasswordByUsername(string username, string password)
+        /// <param name="id"></param>
+        public ApiResponse<Object> DeleteUserByIdWithHttpInfo(Guid? id)
         {
-            ResetPasswordByUsernameWithHttpInfo(username, password);
-        }
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UserApi->DeleteUserById");
 
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username"> </param>
-        /// <param name="password"></param>
-        public ApiResponse<Object> ResetPasswordByUsernameWithHttpInfo(string username, string password)
-        {
-            // verify the required parameter 'username' is set
-            if (username == null)
-                throw new ApiException(400, "Missing required parameter 'username' when calling UserApi-> ResetPasswordByUsername");
-
-            var localVarPath = "/users/by-username/{username}/password";
+            var localVarPath = "/users/{id}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1558,9 +963,7 @@ namespace Iatec.Accounts.Client.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-#warning REVER COM O ANDRE
-            localVarPathParams.Add("username", username);
-            localVarFormParams.Add("password", password);
+            if (id != null) localVarPathParams.Add("id", id.Value.ToString());
 
             // authentication (client_credentials) required
             // oauth required
@@ -1571,7 +974,7 @@ namespace Iatec.Accounts.Client.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
@@ -1581,7 +984,7 @@ namespace Iatec.Accounts.Client.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ResetPasswordByUsername", localVarResponse);
+                Exception exception = ExceptionFactory("DeleteUserById", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1594,26 +997,35 @@ namespace Iatec.Accounts.Client.Api
         ///
         /// </summary>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username"> </param>
-        /// <param name="password"></param>
-        public async System.Threading.Tasks.Task ResetPasswordByUsernameAsync(string username, string password)
+        /// <param name="filter"> (optional)</param>
+        /// <returns>List&lt;UserModel&gt;</returns>
+        public PagedResponse<UserModel> GetPagerUserByFilter(int limit, int offset, string filter = null)
         {
-            await ResetPasswordByUsernameAsyncWithHttpInfo(username, password);
+            ApiResponse<PagedResponse<UserModel>> localVarResponse = GetPagerUserByFilterWithHttpInfo(limit, offset, filter);
+            return localVarResponse?.Data;
         }
 
         /// <summary>
         ///
         /// </summary>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username"> </param>
-        /// <param name="password"></param>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> ResetPasswordByUsernameAsyncWithHttpInfo(string username, string password)
+        /// <param name="filter"> (optional)</param>
+        /// <returns>Task of List&lt;UserModel&gt;</returns>
+        public async System.Threading.Tasks.Task<PagedResponse<UserModel>> GetPagerUserByFilterAsync(int limit, int offset, string filter = null)
         {
-            // verify the required parameter 'username' is set
-            if (username == null)
-                throw new ApiException(400, "Missing required parameter 'username' when calling UserApi-> ResetPasswordByUsername");
+            ApiResponse<PagedResponse<UserModel>> localVarResponse = await GetPagerUserByFilterAsyncWithHttpInfo(limit, offset, filter);
+            return localVarResponse?.Data;
+        }
 
-            var localVarPath = "/users/by-username/{username}/password";
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="filter"> (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;UserModel&gt;)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PagedResponse<UserModel>>> GetPagerUserByFilterAsyncWithHttpInfo(int limit, int offset, string filter = null)
+        {
+            var localVarPath = "/users";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1635,9 +1047,9 @@ namespace Iatec.Accounts.Client.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-#warning REVER COM O ANDRE
-            localVarPathParams.Add("username", username);
-            localVarFormParams.Add("password", password);
+            if (filter != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
+            localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
 
             // authentication (client_credentials) required
             // oauth required
@@ -1648,7 +1060,7 @@ namespace Iatec.Accounts.Client.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
@@ -1658,13 +1070,531 @@ namespace Iatec.Accounts.Client.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ResetPasswordByUsername", localVarResponse);
+                Exception exception = ExceptionFactory("GetListUserByFilter", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
-              localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-              null);
+            return new ApiResponse<PagedResponse<UserModel>>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PagedResponse<UserModel>)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResponse<UserModel>)));
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="filter"> (optional)</param>
+        /// <returns>ApiResponse of List&lt;UserModel&gt;</returns>
+        public ApiResponse<PagedResponse<UserModel>> GetPagerUserByFilterWithHttpInfo(int limit, int offset, string filter = null)
+        {
+            var localVarPath = "/users";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "applications/json",
+                "applications/xml"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (filter != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
+            localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+
+            // authentication (client_credentials) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
+                return null;
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetListUserByFilter", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PagedResponse<UserModel>>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PagedResponse<UserModel>)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResponse<UserModel>)));
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email"></param>
+        /// <returns>UserModel</returns>
+        public UserModel GetUserByEmail(string email)
+        {
+            ApiResponse<UserModel> localVarResponse = GetUserByEmailWithHttpInfo(email);
+            return localVarResponse?.Data;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email"></param>
+        /// <returns>Task of UserModel</returns>
+        public async System.Threading.Tasks.Task<UserModel> GetUserByEmailAsync(string email)
+        {
+            ApiResponse<UserModel> localVarResponse = await GetUserByEmailAsyncWithHttpInfo(email);
+            return localVarResponse?.Data;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email"></param>
+        /// <returns>Task of ApiResponse (UserModel)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<UserModel>> GetUserByEmailAsyncWithHttpInfo(string email)
+        {
+            // verify the required parameter 'email' is set
+            if (email == null)
+                throw new ApiException(400, "Missing required parameter 'email' when calling UserApi->GetUserByEmail");
+
+            var localVarPath = "/users/by-email/{email}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "applications/json",
+                "applications/xml"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (email != null) localVarPathParams.Add("email", email);
+
+            // authentication (client_credentials) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
+                return null;
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetUserByEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<UserModel>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (UserModel)Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserModel)));
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email"></param>
+        /// <returns>ApiResponse of UserModel</returns>
+        public ApiResponse<UserModel> GetUserByEmailWithHttpInfo(string email)
+        {
+            // verify the required parameter 'email' is set
+            if (email == null)
+                throw new ApiException(400, "Missing required parameter 'email' when calling UserApi->GetUserByEmail");
+
+            var localVarPath = "/users/by-email/{email}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "applications/json",
+                "applications/xml"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (email != null) localVarPathParams.Add("email", email);
+
+            // authentication (client_credentials) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
+                return null;
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetUserByEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<UserModel>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (UserModel)Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserModel)));
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <returns>UserModel</returns>
+        public UserModel GetUserById(Guid? id)
+        {
+            ApiResponse<UserModel> localVarResponse = GetUserByIdWithHttpInfo(id);
+            return localVarResponse?.Data;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <returns>Task of UserModel</returns>
+        public async System.Threading.Tasks.Task<UserModel> GetUserByIdAsync(Guid? id)
+        {
+            ApiResponse<UserModel> localVarResponse = await GetUserByIdAsyncWithHttpInfo(id);
+            return localVarResponse?.Data;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <returns>Task of ApiResponse (UserModel)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<UserModel>> GetUserByIdAsyncWithHttpInfo(Guid? id)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UserApi->GetUserById");
+
+            var localVarPath = "/users/{id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "applications/json",
+                "applications/xml"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", id.Value.ToString());
+
+            // authentication (client_credentials) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
+                return null;
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetUserById", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<UserModel>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (UserModel)Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserModel)));
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <returns>ApiResponse of UserModel</returns>
+        public ApiResponse<UserModel> GetUserByIdWithHttpInfo(Guid? id)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UserApi->GetUserById");
+
+            var localVarPath = "/users/{id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "applications/json",
+                "applications/xml"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", id.Value.ToString());
+
+            // authentication (client_credentials) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
+                return null;
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetUserById", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<UserModel>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (UserModel)Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserModel)));
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username"></param>
+        /// <returns>UserModel</returns>
+        public UserModel GetUserByUsername(string username)
+        {
+            ApiResponse<UserModel> localVarResponse = GetUserByUsernameWithHttpInfo(username);
+            return localVarResponse?.Data;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username"></param>
+        /// <returns>Task of UserModel</returns>
+        public async System.Threading.Tasks.Task<UserModel> GetUserByUsernameAsync(string username)
+        {
+            ApiResponse<UserModel> localVarResponse = await GetUserByUsernameAsyncWithHttpInfo(username);
+            return localVarResponse?.Data;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username"></param>
+        /// <returns>Task of ApiResponse (UserModel)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<UserModel>> GetUserByUsernameAsyncWithHttpInfo(string username)
+        {
+            // verify the required parameter 'username' is set
+            if (username == null)
+                throw new ApiException(400, "Missing required parameter 'username' when calling UserApi->GetUserByUserName");
+
+            var localVarPath = "/users/by-username/{username}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "applications/json",
+                "applications/xml"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (username != null) localVarPathParams.Add("username", username);
+
+            // authentication (client_credentials) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
+                return null;
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetUserByUserName", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<UserModel>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (UserModel)Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserModel)));
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username"></param>
+        /// <returns>ApiResponse of UserModel</returns>
+        public ApiResponse<UserModel> GetUserByUsernameWithHttpInfo(string username)
+        {
+            // verify the required parameter 'username' is set
+            if (username == null)
+                throw new ApiException(400, "Missing required parameter 'username' when calling UserApi->GetUserByUserName");
+
+            var localVarPath = "/users/by-username/{username}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "applications/json",
+                "applications/xml"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (username != null) localVarPathParams.Add("username", username); // query parameter
+
+            // authentication (client_credentials) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
+                return null;
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetUserByUserName", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<UserModel>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (UserModel)Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserModel)));
         }
 
         /// <summary>
@@ -1676,72 +1606,6 @@ namespace Iatec.Accounts.Client.Api
         public void ResetPasswordByEmail(string email, string password)
         {
             ResetPasswordByEmailWithHttpInfo(email, password);
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email"> </param>
-        /// <param name="password"></param>
-        public ApiResponse<Object> ResetPasswordByEmailWithHttpInfo(string email, string password)
-        {
-            // verify the required parameter 'email' is set
-            if (email == null)
-                throw new ApiException(400, "Missing required parameter 'email' when calling UserApi-> ResetPasswordByEmail");
-
-            var localVarPath = "/users/by-email/{email}/password";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "applications/json",
-                "applications/xml"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-#warning REVER COM O ANDRE
-            localVarPathParams.Add("email", email);
-            localVarFormParams.Add("password", password);
-
-            // authentication (client_credentials) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
-                return null;
-
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ResetPasswordByEmail", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Object>(localVarStatusCode,
-               localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-               null);
         }
 
         /// <summary>
@@ -1825,27 +1689,15 @@ namespace Iatec.Accounts.Client.Api
         ///
         /// </summary>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"> </param>
-        /// <param name="user"></param>
-        public UserModel UpdateUserById(Guid? id, UserInsertModel user)
+        /// <param name="email"> </param>
+        /// <param name="password"></param>
+        public ApiResponse<Object> ResetPasswordByEmailWithHttpInfo(string email, string password)
         {
-            ApiResponse<UserModel> localVarResponse = UpdateUserByIdWithHttpInfo(id, user);
-            return localVarResponse?.Data;
-        }
+            // verify the required parameter 'email' is set
+            if (email == null)
+                throw new ApiException(400, "Missing required parameter 'email' when calling UserApi-> ResetPasswordByEmail");
 
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"> </param>
-        /// <param name="user"></param>
-        public ApiResponse<UserModel> UpdateUserByIdWithHttpInfo(Guid? id, UserInsertModel user)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UserApi-> UpdateUserById");
-
-            var localVarPath = "/users/{id}";
+            var localVarPath = "/users/by-email/{email}/password";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1867,7 +1719,324 @@ namespace Iatec.Accounts.Client.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            localVarPathParams.Add("id", id.Value.ToString());
+#warning REVER COM O ANDRE
+            localVarPathParams.Add("email", email);
+            localVarFormParams.Add("password", password);
+
+            // authentication (client_credentials) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
+                return null;
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ResetPasswordByEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+               localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+               null);
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username"> </param>
+        /// <param name="password"></param>
+        public void ResetPasswordByUsername(string username, string password)
+        {
+            ResetPasswordByUsernameWithHttpInfo(username, password);
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username"> </param>
+        /// <param name="password"></param>
+        public async System.Threading.Tasks.Task ResetPasswordByUsernameAsync(string username, string password)
+        {
+            await ResetPasswordByUsernameAsyncWithHttpInfo(username, password);
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username"> </param>
+        /// <param name="password"></param>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> ResetPasswordByUsernameAsyncWithHttpInfo(string username, string password)
+        {
+            // verify the required parameter 'username' is set
+            if (username == null)
+                throw new ApiException(400, "Missing required parameter 'username' when calling UserApi-> ResetPasswordByUsername");
+
+            var localVarPath = "/users/by-username/{username}/password";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "applications/json",
+                "applications/xml"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+#warning REVER COM O ANDRE
+            localVarPathParams.Add("username", username);
+            localVarFormParams.Add("password", password);
+
+            // authentication (client_credentials) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
+                return null;
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ResetPasswordByUsername", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+              localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+              null);
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username"> </param>
+        /// <param name="password"></param>
+        public ApiResponse<Object> ResetPasswordByUsernameWithHttpInfo(string username, string password)
+        {
+            // verify the required parameter 'username' is set
+            if (username == null)
+                throw new ApiException(400, "Missing required parameter 'username' when calling UserApi-> ResetPasswordByUsername");
+
+            var localVarPath = "/users/by-username/{username}/password";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "applications/json",
+                "applications/xml"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+#warning REVER COM O ANDRE
+            localVarPathParams.Add("username", username);
+            localVarFormParams.Add("password", password);
+
+            // authentication (client_credentials) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
+                return null;
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ResetPasswordByUsername", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+               localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+               null);
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email"> </param>
+        /// <param name="user"></param>
+        public UserModel UpdateUserByEmail(string email, UserInsertModel user)
+        {
+            ApiResponse<UserModel> localVarResponse = UpdateUserByEmailWithHttpInfo(email, user);
+            return localVarResponse?.Data;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email"> </param>
+        /// <param name="user"></param>
+        public async System.Threading.Tasks.Task<UserModel> UpdateUserByEmailAsync(string email, UserInsertModel user)
+        {
+            ApiResponse<UserModel> localVarResponse = await UpdateUserByEmailAsyncWithHttpInfo(email, user);
+            return localVarResponse?.Data;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email"> </param>
+        /// <param name="user"></param>
+        public async System.Threading.Tasks.Task<ApiResponse<UserModel>> UpdateUserByEmailAsyncWithHttpInfo(string email, UserInsertModel user)
+        {
+            // verify the required parameter 'email' is set
+            if (email == null)
+                throw new ApiException(400, "Missing required parameter 'email' when calling UserApi-> UpdateUserByEmail");
+
+            var localVarPath = "/users/by-email/{email}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "applications/json",
+                "applications/xml"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            localVarPathParams.Add("email", email.ToString());
+
+            if (user != null && user.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(user); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = user; // byte array
+            }
+
+            // authentication (client_credentials) required
+            // oauth required
+            if (!String.IsNullOrEmpty(Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
+                return null;
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateUserByEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<UserModel>(localVarStatusCode,
+              localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+              (UserModel)Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserModel)));
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email"> </param>
+        /// <param name="user"></param>
+        public ApiResponse<UserModel> UpdateUserByEmailWithHttpInfo(string email, UserInsertModel user)
+        {
+            // verify the required parameter 'email' is set
+            if (email == null)
+                throw new ApiException(400, "Missing required parameter 'email' when calling UserApi-> UpdateUserByEmail");
+
+            var localVarPath = " /users/by-email/{email}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "applications/json",
+                "applications/xml"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            localVarPathParams.Add("email", email.ToString());
 
             if (user != null && user.GetType() != typeof(byte[]))
             {
@@ -1897,13 +2066,25 @@ namespace Iatec.Accounts.Client.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("UpdateUserById", localVarResponse);
+                Exception exception = ExceptionFactory("UpdateUserByEmail", localVarResponse);
                 if (exception != null) throw exception;
             }
 
             return new ApiResponse<UserModel>(localVarStatusCode,
               localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
               (UserModel)Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserModel)));
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"> </param>
+        /// <param name="user"></param>
+        public UserModel UpdateUserById(Guid? id, UserInsertModel user)
+        {
+            ApiResponse<UserModel> localVarResponse = UpdateUserByIdWithHttpInfo(id, user);
+            return localVarResponse?.Data;
         }
 
         /// <summary>
@@ -1995,27 +2176,15 @@ namespace Iatec.Accounts.Client.Api
         ///
         /// </summary>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username"> </param>
+        /// <param name="id"> </param>
         /// <param name="user"></param>
-        public UserModel UpdateUserByUsername(string username, UserInsertModel user)
+        public ApiResponse<UserModel> UpdateUserByIdWithHttpInfo(Guid? id, UserInsertModel user)
         {
-            ApiResponse<UserModel> localVarResponse = UpdateUserByUsernameWithHttpInfo(username, user);
-            return localVarResponse?.Data;
-        }
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UserApi-> UpdateUserById");
 
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="username"> </param>
-        /// <param name="user"></param>
-        public ApiResponse<UserModel> UpdateUserByUsernameWithHttpInfo(string username, UserInsertModel user)
-        {
-            // verify the required parameter 'username' is set
-            if (username == null)
-                throw new ApiException(400, "Missing required parameter 'username' when calling UserApi-> UpdateUserByUsername");
-
-            var localVarPath = " /users/by-username/{username}";
+            var localVarPath = "/users/{id}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2037,7 +2206,7 @@ namespace Iatec.Accounts.Client.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            localVarPathParams.Add("username", username.ToString());
+            localVarPathParams.Add("id", id.Value.ToString());
 
             if (user != null && user.GetType() != typeof(byte[]))
             {
@@ -2067,13 +2236,25 @@ namespace Iatec.Accounts.Client.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("UpdateUserByUsername", localVarResponse);
+                Exception exception = ExceptionFactory("UpdateUserById", localVarResponse);
                 if (exception != null) throw exception;
             }
 
             return new ApiResponse<UserModel>(localVarStatusCode,
               localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
               (UserModel)Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserModel)));
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="username"> </param>
+        /// <param name="user"></param>
+        public UserModel UpdateUserByUsername(string username, UserInsertModel user)
+        {
+            ApiResponse<UserModel> localVarResponse = UpdateUserByUsernameWithHttpInfo(username, user);
+            return localVarResponse?.Data;
         }
 
         /// <summary>
@@ -2165,27 +2346,15 @@ namespace Iatec.Accounts.Client.Api
         ///
         /// </summary>
         /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email"> </param>
+        /// <param name="username"> </param>
         /// <param name="user"></param>
-        public UserModel UpdateUserByEmail(string email, UserInsertModel user)
+        public ApiResponse<UserModel> UpdateUserByUsernameWithHttpInfo(string username, UserInsertModel user)
         {
-            ApiResponse<UserModel> localVarResponse = UpdateUserByEmailWithHttpInfo(email, user);
-            return localVarResponse?.Data;
-        }
+            // verify the required parameter 'username' is set
+            if (username == null)
+                throw new ApiException(400, "Missing required parameter 'username' when calling UserApi-> UpdateUserByUsername");
 
-        /// <summary>
-        ///
-        /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email"> </param>
-        /// <param name="user"></param>
-        public ApiResponse<UserModel> UpdateUserByEmailWithHttpInfo(string email, UserInsertModel user)
-        {
-            // verify the required parameter 'email' is set
-            if (email == null)
-                throw new ApiException(400, "Missing required parameter 'email' when calling UserApi-> UpdateUserByEmail");
-
-            var localVarPath = " /users/by-email/{email}";
+            var localVarPath = " /users/by-username/{username}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2207,7 +2376,7 @@ namespace Iatec.Accounts.Client.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            localVarPathParams.Add("email", email.ToString());
+            localVarPathParams.Add("username", username.ToString());
 
             if (user != null && user.GetType() != typeof(byte[]))
             {
@@ -2237,7 +2406,7 @@ namespace Iatec.Accounts.Client.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("UpdateUserByEmail", localVarResponse);
+                Exception exception = ExceptionFactory("UpdateUserByUsername", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2246,89 +2415,99 @@ namespace Iatec.Accounts.Client.Api
               (UserModel)Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserModel)));
         }
 
+        private Iatec.Accounts.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+
+        #region Default
+
         /// <summary>
-        ///
+        /// Initializes a new instance of the <see cref="UserApi"/> class.
         /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email"> </param>
-        /// <param name="user"></param>
-        public async System.Threading.Tasks.Task<UserModel> UpdateUserByEmailAsync(string email, UserInsertModel user)
+        /// <returns></returns>
+        public UserApi(String basePath)
         {
-            ApiResponse<UserModel> localVarResponse = await UpdateUserByEmailAsyncWithHttpInfo(email, user);
-            return localVarResponse?.Data;
+            this.Configuration = new Configuration { BasePath = basePath };
+
+            ExceptionFactory = Iatec.Accounts.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        ///
+        /// Initializes a new instance of the <see cref="UserApi"/> class
+        /// using Configuration object
         /// </summary>
-        /// <exception cref="Iatec.Accounts.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="email"> </param>
-        /// <param name="user"></param>
-        public async System.Threading.Tasks.Task<ApiResponse<UserModel>> UpdateUserByEmailAsyncWithHttpInfo(string email, UserInsertModel user)
+        /// <param name="configuration">An instance of Configuration</param>
+        /// <returns></returns>
+        public UserApi(Configuration configuration = null)
         {
-            // verify the required parameter 'email' is set
-            if (email == null)
-                throw new ApiException(400, "Missing required parameter 'email' when calling UserApi-> UpdateUserByEmail");
-
-            var localVarPath = "/users/by-email/{email}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "applications/json",
-                "applications/xml"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            localVarPathParams.Add("email", email.ToString());
-
-            if (user != null && user.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(user); // http body (model) parameter
-            }
+            if (configuration == null) // use the default one in Configuration
+                this.Configuration = Configuration.Default;
             else
-            {
-                localVarPostBody = user; // byte array
-            }
+                this.Configuration = configuration;
 
-            // authentication (client_credentials) required
-            // oauth required
-            if (!String.IsNullOrEmpty(Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            if (localVarResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
-                return null;
-
-            int localVarStatusCode = (int)localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("UpdateUserByEmail", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<UserModel>(localVarStatusCode,
-              localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-              (UserModel)Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserModel)));
+            ExceptionFactory = Iatec.Accounts.Client.Configuration.DefaultExceptionFactory;
         }
+
+        /// <summary>
+        /// Gets or sets the configuration object
+        /// </summary>
+        /// <value>An instance of the Configuration</value>
+        public Configuration Configuration { get; set; }
+
+        /// <summary>
+        /// Provides a factory method hook for the creation of exceptions.
+        /// </summary>
+        public Iatec.Accounts.Client.ExceptionFactory ExceptionFactory
+        {
+            get
+            {
+                if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
+                {
+                    throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
+                }
+                return _exceptionFactory;
+            }
+            set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// Add default header.
+        /// </summary>
+        /// <param name="key">Header field name.</param>
+        /// <param name="value">Header field value.</param>
+        /// <returns></returns>
+        [Obsolete("AddDefaultHeader is deprecated, please use Configuration.AddDefaultHeader instead.")]
+        public void AddDefaultHeader(string key, string value)
+        {
+            this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Gets the default header.
+        /// </summary>
+        /// <returns>Dictionary of HTTP header</returns>
+        [Obsolete("DefaultHeader is deprecated, please use Configuration.DefaultHeader instead.")]
+        public IDictionary<String, String> DefaultHeader()
+        {
+            return new ReadOnlyDictionary<string, string>(this.Configuration.DefaultHeader);
+        }
+
+        /// <summary>
+        /// Gets the base path of the API client.
+        /// </summary>
+        /// <value>The base path</value>
+        public String GetBasePath()
+        {
+            return this.Configuration.ApiClient.RestClient.BaseUrl.ToString();
+        }
+
+        /// <summary>
+        /// Sets the base path of the API client.
+        /// </summary>
+        /// <value>The base path</value>
+        [Obsolete("SetBasePath is deprecated, please do 'Configuration.ApiClient = new ApiClient(\"http://new-path\")' instead.")]
+        public void SetBasePath(String basePath)
+        {
+            // do nothing
+        }
+        #endregion Default
     }
 }
