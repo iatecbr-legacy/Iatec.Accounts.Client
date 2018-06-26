@@ -30,9 +30,11 @@ namespace Iatec.Accounts.Client.Model
         /// <param name="Email">Email.</param>
         /// <param name="Id">Id.</param>
         /// <param name="CreatedAt">CreatedAt.</param>
-        public UserModel(string Username = default(string), bool Locked = default(bool), string Email = default(string), Guid Id = default(Guid), DateTime CreatedAt = default(DateTime))
+        public UserModel(string Username = default(string), string Language = default(string), string Picture = default(string), bool Locked = default(bool), string Email = default(string), Guid Id = default(Guid), DateTime CreatedAt = default(DateTime))
         {
             this.Username = Username;
+            this.Language = Language;
+            this.Picture = Picture;
             this.Locked = Locked;
             this.Email = Email;
             this.CreatedAt = CreatedAt;
@@ -44,6 +46,18 @@ namespace Iatec.Accounts.Client.Model
         /// </summary>
         [DataMember(Name = "username", EmitDefaultValue = false)]
         public string Username { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Language
+        /// </summary>
+        [DataMember(Name = "language", EmitDefaultValue = false)]
+        public string Language { get; }
+
+        /// <summary>
+        /// Gets or Sets Picture
+        /// </summary>
+        [DataMember(Name = "picture", EmitDefaultValue = false)]
+        public string Picture { get; }
 
         /// <summary>
         /// Gets or Sets Locked
@@ -80,6 +94,8 @@ namespace Iatec.Accounts.Client.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Username).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("  Picture: ").Append(Picture).Append("\n");
+            sb.Append("  Language: ").Append(Language).Append("\n");
             sb.Append("  Locked: ").Append(Locked).Append("\n");
             sb.Append("  Created at: ").Append(CreatedAt).Append("\n");
             sb.Append("}\n");
@@ -121,6 +137,14 @@ namespace Iatec.Accounts.Client.Model
                     (this.Username != null &&
                     this.Username.Equals(input.Username))
                 ) && (
+                    this.Language == input.Language ||
+                    (this.Language != null &&
+                    this.Language.Equals(input.Language))
+                ) && (
+                    this.Picture == input.Picture ||
+                    (this.Picture != null &&
+                    this.Picture.Equals(input.Picture))
+                ) && (
                     this.Locked == input.Locked ||
                     (this.Locked.Equals(input.Locked))
                 ) &&
@@ -152,6 +176,10 @@ namespace Iatec.Accounts.Client.Model
                 int hashCode = 41;
                 if (this.Username != null)
                     hashCode = hashCode * 59 + this.Username.GetHashCode();
+                if (this.Language != null)
+                    hashCode = hashCode * 59 + this.Language.GetHashCode();
+                if (this.Picture != null)
+                    hashCode = hashCode * 59 + this.Picture.GetHashCode();
                 if (this.Email != null)
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
                 hashCode = hashCode * 59 + this.Locked.GetHashCode();
