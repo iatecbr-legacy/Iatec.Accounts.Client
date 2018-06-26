@@ -30,9 +30,10 @@ namespace Iatec.Accounts.Client.Model
         /// <param name="Email">Email.</param>
         /// <param name="Id">Id.</param>
         /// <param name="CreatedAt">CreatedAt.</param>
-        public UserModel(string Username = default(string), string Email = default(string), Guid Id = default(Guid), DateTime CreatedAt = default(DateTime))
+        public UserModel(string Username = default(string), bool Locked = default(bool), string Email = default(string), Guid Id = default(Guid), DateTime CreatedAt = default(DateTime))
         {
             this.Username = Username;
+            this.Locked = Locked;
             this.Email = Email;
             this.CreatedAt = CreatedAt;
             this.Id = Id;
@@ -43,6 +44,12 @@ namespace Iatec.Accounts.Client.Model
         /// </summary>
         [DataMember(Name = "username", EmitDefaultValue = false)]
         public string Username { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Locked
+        /// </summary>
+        [DataMember(Name = "locked", EmitDefaultValue = false)]
+        public bool Locked { get; }
 
         /// <summary>
         /// Gets or Sets Email
@@ -70,10 +77,11 @@ namespace Iatec.Accounts.Client.Model
         {
             var sb = new StringBuilder();
             sb.Append("class UserModel {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Username).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("  Locked: ").Append(Locked).Append("\n");
             sb.Append("  Created at: ").Append(CreatedAt).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -112,6 +120,9 @@ namespace Iatec.Accounts.Client.Model
                     this.Username == input.Username ||
                     (this.Username != null &&
                     this.Username.Equals(input.Username))
+                ) && (
+                    this.Locked == input.Locked ||
+                    (this.Locked.Equals(input.Locked))
                 ) &&
                 (
                     this.CreatedAt == input.CreatedAt ||
@@ -143,6 +154,7 @@ namespace Iatec.Accounts.Client.Model
                     hashCode = hashCode * 59 + this.Username.GetHashCode();
                 if (this.Email != null)
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
+                hashCode = hashCode * 59 + this.Locked.GetHashCode();
                 if (this.CreatedAt != default(DateTime))
                     hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
                 if (this.Id != default(Guid))
